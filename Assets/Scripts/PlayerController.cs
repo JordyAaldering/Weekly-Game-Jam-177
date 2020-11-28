@@ -21,10 +21,19 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (LevelManager.Instance.IsGameOver) {
+            return;
+        }
+
         StickToWall();
 
         if (isSticking) {
-            GetPlayerAim();
+            if (!LevelManager.Instance.MoveManager.HasMovesLeft) {
+                // the game is only over when the player has stopped moving
+                LevelManager.Instance.GameOver();
+            } else {
+                GetPlayerAim();
+            }
         }
 
         UpdateTimers();
@@ -48,6 +57,7 @@ public class PlayerController : MonoBehaviour
             Aim();
         } else if (Input.GetButtonUp("Fire1")) {
             Fire();
+            LevelManager.Instance.MoveManager.DecreaseCounter();
         }
     }
 

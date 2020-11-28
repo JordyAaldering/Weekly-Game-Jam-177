@@ -336,7 +336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc166b0633cf80c44981b176585dc250, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  counterText: {fileID: 0}
+  counterText: {fileID: 1403896616}
 --- !u!1 &494525424
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,6 +547,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1311867970}
+  - component: {fileID: 1311867971}
   m_Layer: 0
   m_Name: Level Manager
   m_TagString: Untagged
@@ -568,6 +569,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1311867971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311867969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7785297369566da4c8682338e6094c6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialMoves: 5
 --- !u!1 &1403896614
 GameObject:
   m_ObjectHideFlags: 0
