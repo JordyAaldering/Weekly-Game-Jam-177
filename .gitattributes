@@ -1,0 +1,2 @@
+# Mark TMP shader files as #C
+*.shader text diff=csharp linguist-language=csharp
