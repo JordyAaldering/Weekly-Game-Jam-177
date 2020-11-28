@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 1540761958}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -327,7 +327,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1540761953}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.75, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -369,7 +369,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.2
+  m_Radius: 0.3
 --- !u!114 &1540761958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,6 +382,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ece0e8ef8bfde744fad0896a69d5aa4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireForce: 2
+  stickRadius: 0.4
+  stickMask:
+    serializedVersion: 2
+    m_Bits: 256
+  stickCooldown: 0.1
 --- !u!1 &2134447147
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,8 +402,8 @@ GameObject:
   - component: {fileID: 2134447153}
   - component: {fileID: 2134447152}
   - component: {fileID: 2134447151}
-  m_Layer: 0
-  m_Name: Foreground
+  m_Layer: 8
+  m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
