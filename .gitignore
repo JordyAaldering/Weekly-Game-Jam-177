@@ -1,0 +1,6 @@
+# Unity generated files and folders
+Library/
+Logs/
+Temp/
+*.meta
+packages-lock.json
