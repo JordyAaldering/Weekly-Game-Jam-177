@@ -1,2 +1,3 @@
-# Mark TMP shader files as #C
+# Mark TMP shader files as C#
+*.cginc  text diff=csharp linguist-language=csharp
 *.shader text diff=csharp linguist-language=csharp
