@@ -849,7 +849,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ece0e8ef8bfde744fad0896a69d5aa4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireForce: 0
+  fireForce: 2
   stickRadius: 0.35
   stickMask:
     serializedVersion: 2
