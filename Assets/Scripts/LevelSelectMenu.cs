@@ -1,0 +1,42 @@
+﻿using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+public class LevelSelectMenu : MonoBehaviour
+{
+    [SerializeField] private GameObject gridObject;
+	[SerializeField] private GameObject levelSelectButtonPrefab;
+
+	private Level[] levels;
+
+	private void Awake()
+	{
+		PlayerPrefs.DeleteAll();
+		PopulateGrid();
+	}
+
+	private void PopulateGrid()
+	{
+		levels = Resources.LoadAll<Level>("Levels");
+		int maxLvl = PlayerPrefs.GetInt("MaxLevel", 0);
+
+		for (int i = 0; i < levels.Length; i++) {
+			GameObject obj = Instantiate(levelSelectButtonPrefab, gridObject.transform);
+			obj.name = $"Level Select Button {i + 1}";
+			obj.GetComponentInChildren<TextMeshProUGUI>().text = $"{i + 1}";
+
+			if (maxLvl >= i) {
+				Button button = obj.GetComponent<Button>();
+				button.interactable = true;
+				button.onClick.AddListener(delegate { StartLevel(i); });
+			}
+		}
+	}
+
+	public void StartLevel(int lvl)
+	{
+		PlayerPrefs.SetInt("CurLevel", lvl);
+		SceneManager.LoadScene(1);
+	}
+}
