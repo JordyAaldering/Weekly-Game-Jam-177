@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level01
   m_EditorClassIdentifier: 
   initialMoves: 5
-  levelData: '---------------
+  levelData: '-----------aaaa
 
     ---------------
 
@@ -21,12 +21,12 @@ MonoBehaviour:
 
     ----wwwwww--e--
 
-    ----------wwwww
+    aaa-------wwwww
 
     www--p--wwwww--
 
     www-----wwwww--
 
-    wwwwwwww-------
+    wwwwwwww--sss--
 
     wwwwwwww-------'

@@ -8,7 +8,11 @@ public class LevelManager : MonoBehaviour
         instance ?? (instance = FindObjectOfType<LevelManager>());
 
     [SerializeField] private RuleTile wallTile;
+    [SerializeField] private RuleTile acidTile;
+    [SerializeField] private RuleTile spikeTile;
+
     [SerializeField] private Tilemap wallsTileMap;
+    [SerializeField] private Tilemap obstaclesTileMap;
 
     [SerializeField] private Level[] levels;
     private int curLevel;
@@ -27,6 +31,9 @@ public class LevelManager : MonoBehaviour
 
     private void Awake()
     {
+        PlayerPrefs.DeleteAll();
+        curLevel = PlayerPrefs.GetInt("CurLevel", 0);
+
         player = GameObject.FindGameObjectWithTag("Player").transform;
         levelEnd = GameObject.FindGameObjectWithTag("LevelEnd").transform;
         cam = Camera.main;
@@ -55,7 +62,7 @@ public class LevelManager : MonoBehaviour
 
         MoveManager.Initialize(GetLevel.InitialMoves);
         GetLevel.PopulateGrid();
-        SetupGrid(GetLevel);
+        SetupGrid();
         SetCamera();
     }
 
@@ -74,17 +81,23 @@ public class LevelManager : MonoBehaviour
         cam.orthographicSize = Mathf.Max(GetLevel.Width, GetLevel.Height) / 2.5f;
     }
 
-    private void SetupGrid(Level level)
+    private void SetupGrid()
     {
         ClearGrid();
         CreateBorders(5);
 
-        for (int y = 0; y < level.Height; y++) {
-            for (int x = 0; x < level.Width; x++) {
+        for (int y = 0; y < GetLevel.Height; y++) {
+            for (int x = 0; x < GetLevel.Width; x++) {
                 Vector3Int pos = new Vector3Int(x, y, 0);
-                switch (level.LevelGrid[x, y]) {
+                switch (GetLevel.LevelGrid[x, y]) {
                     case TileType.Wall:
                         wallsTileMap.SetTile(pos, wallTile);
+                        break;
+                    case TileType.Acid:
+                        PlaceObstacle(acidTile, x, y);
+                        break;
+                    case TileType.Spike:
+                        PlaceObstacle(spikeTile, x, y);
                         break;
                     case TileType.Player:
                         playerStartPos = pos + new Vector3(0.5f, 0.5f);
@@ -96,6 +109,26 @@ public class LevelManager : MonoBehaviour
                 }
 			}
 		}
+    }
+
+    private void PlaceObstacle(RuleTile tile, int x, int y)
+	{
+        // place a tile inside a wall to let the rule tile oriënt the correct way
+        // check if there is a wall above
+        if (GetLevel.IsWall(x, y + 1)) {
+            obstaclesTileMap.SetTile(new Vector3Int(x, y, 0), tile);
+            obstaclesTileMap.SetTile(new Vector3Int(x, y + 1, 0), tile);
+            return;
+        }
+
+        // check if there is a wall below
+        if (GetLevel.IsWall(x, y - 1)) {
+            obstaclesTileMap.SetTile(new Vector3Int(x, y, 0), tile);
+            obstaclesTileMap.SetTile(new Vector3Int(x, y - 1, 0), tile);
+            return;
+        }
+
+        Debug.LogWarning($"invalid obstacle position ({x}, {y})");
     }
 
     private void ClearGrid()

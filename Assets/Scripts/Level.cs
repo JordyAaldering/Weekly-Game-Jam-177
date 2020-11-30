@@ -6,7 +6,7 @@ public class Level : ScriptableObject
     [SerializeField] private int initialMoves;
     public int InitialMoves => initialMoves;
 
-    [Tooltip("_: None\nw: Wall\np: Player\ne: End")]
+    [Tooltip("_: None\nw: Wall\na: Acid\ns: Spike\np: Player\ne: End")]
     [SerializeField, TextArea(10,20)] private string levelData;
     private string levelDataFormat;
 
@@ -38,6 +38,8 @@ public class Level : ScriptableObject
         switch (c) {
             case '-': return TileType.None;
             case 'w': return TileType.Wall;
+            case 'a': return TileType.Acid;
+            case 's': return TileType.Spike;
             case 'p': return TileType.Player;
             case 'e': return TileType.End;
         }
@@ -45,12 +47,23 @@ public class Level : ScriptableObject
         Debug.LogWarning($"unknown tile type '{c}'");
         return TileType.None;
     }
+
+    public bool IsWall(int x, int y)
+	{
+        if (x < 0 || x >= Width || y < 0 || y >= Height) {
+            return true;
+		}
+
+        return LevelGrid[x, y] == TileType.Wall;
+	}
 }
 
 public enum TileType
 {
     None,
     Wall,
+    Acid,
+    Spike,
     Player,
     End,
 }

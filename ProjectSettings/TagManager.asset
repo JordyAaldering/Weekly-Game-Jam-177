@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - LevelEnd
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - 
   - 
   - Walls
-  - 
+  - Obstacles
   - 
   - 
   - 
@@ -44,4 +45,13 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Obstacles
+    uniqueID: 4201066357
+    locked: 0
+  - name: Walls
+    uniqueID: 1924272533
+    locked: 0
+  - name: Player
+    uniqueID: 2398745379
     locked: 0

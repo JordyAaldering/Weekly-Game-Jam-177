@@ -99,6 +99,10 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        LevelManager.Instance.LevelComplete();
+        if (collision.CompareTag("Obstacle")) {
+            LevelManager.Instance.GameOver();
+		} else if (collision.CompareTag("LevelEnd")) {
+            LevelManager.Instance.LevelComplete();
+		}
 	}
 }
