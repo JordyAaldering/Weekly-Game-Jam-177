@@ -17,7 +17,9 @@ public class LevelManager : MonoBehaviour
 
     public MoveManager MoveManager { get; private set; }
 
+    public bool IsGameWon { get; private set; }
     public bool IsGameOver { get; private set; }
+    public bool IsPlaying => !IsGameWon && !IsGameOver;
 
     private void Awake()
     {
@@ -89,6 +91,12 @@ public class LevelManager : MonoBehaviour
             }
 		}
 	}
+
+    public void LevelComplete()
+	{
+        IsGameWon = true;
+        Debug.Log("Game Won");
+    }
 
     public void GameOver()
     {

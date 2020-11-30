@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (LevelManager.Instance.IsGameOver) {
+        if (!LevelManager.Instance.IsPlaying) {
             return;
         }
 
@@ -92,4 +92,13 @@ public class PlayerController : MonoBehaviour
             stickTimer -= Time.deltaTime;
         }
     }
+
+	private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!LevelManager.Instance.IsPlaying) {
+            return;
+        }
+
+        LevelManager.Instance.LevelComplete();
+	}
 }
