@@ -8,5 +8,9 @@ obj/
 Library/
 Logs/
 Temp/
-*.meta
 packages-lock.json
+
+# Ignore meta files
+*.meta
+# But not source files with postfix
+!*.*.meta
