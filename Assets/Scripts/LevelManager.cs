@@ -7,11 +7,15 @@ public class LevelManager : MonoBehaviour
     public static LevelManager Instance =>
         instance ?? (instance = FindObjectOfType<LevelManager>());
 
-    [SerializeField] private Level level;
     [SerializeField] private RuleTile wallTile;
     [SerializeField] private Tilemap wallsTileMap;
 
+    [SerializeField] private Level[] levels;
+    private int curLevel;
+    private Level GetLevel => levels[curLevel];
+
     private Transform player;
+    private Vector2 playerStartPos;
     private Transform levelEnd;
     private Camera cam;
 
@@ -29,16 +33,45 @@ public class LevelManager : MonoBehaviour
 
         MoveManager = FindObjectOfType<MoveManager>();
 
-        level.PopulateGrid();
-        MoveManager.Initialize(level.InitialMoves);
-        SetupGrid(level);
+        StartLevel();
+    }
+
+	private void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.R)) {
+            ResetLevel();
+		}
+
+        if (IsGameWon && Input.GetKeyDown(KeyCode.N)) {
+            curLevel++;
+            StartLevel();
+		}
+	}
+
+    private void StartLevel()
+    {
+        IsGameWon = false;
+        IsGameOver = false;
+
+        MoveManager.Initialize(GetLevel.InitialMoves);
+        GetLevel.PopulateGrid();
+        SetupGrid(GetLevel);
         SetCamera();
+    }
+
+    private void ResetLevel()
+    {
+        IsGameWon = false;
+        IsGameOver = false;
+
+        MoveManager.Initialize(GetLevel.InitialMoves);
+        player.position = playerStartPos;
     }
 
     private void SetCamera()
     {
-        cam.transform.position = new Vector3(level.Width / 2f, level.Height / 2f, -10f);
-        cam.orthographicSize = Mathf.Max(level.Width, level.Height) / 2.5f;
+        cam.transform.position = new Vector3(GetLevel.Width / 2f, GetLevel.Height / 2f, -10f);
+        cam.orthographicSize = Mathf.Max(GetLevel.Width, GetLevel.Height) / 2.5f;
     }
 
     private void SetupGrid(Level level)
@@ -54,7 +87,8 @@ public class LevelManager : MonoBehaviour
                         wallsTileMap.SetTile(pos, wallTile);
                         break;
                     case TileType.Player:
-                        player.position = pos + new Vector3(0.5f, 0.5f);
+                        playerStartPos = pos + new Vector3(0.5f, 0.5f);
+                        player.position = playerStartPos;
                         break;
                     case TileType.End:
                         levelEnd.position = pos + new Vector3(0.5f, 0.5f);
@@ -73,8 +107,8 @@ public class LevelManager : MonoBehaviour
 	{
         // top, bottom, and corners
         for (int y = 1; y <= size; y++) {
-            for (int x = -size; x < level.Width + size; x++) {
-                Vector3Int posTop = new Vector3Int(x, level.Height + y - 1, 0);
+            for (int x = -size; x < GetLevel.Width + size; x++) {
+                Vector3Int posTop = new Vector3Int(x, GetLevel.Height + y - 1, 0);
                 Vector3Int posBot = new Vector3Int(x, -y, 0);
                 wallsTileMap.SetTile(posTop, wallTile);
                 wallsTileMap.SetTile(posBot, wallTile);
@@ -83,9 +117,9 @@ public class LevelManager : MonoBehaviour
 
         // left and right
         for (int x = 1; x <= size; x++) {
-            for (int y = 0; y < level.Height; y++) {
+            for (int y = 0; y < GetLevel.Height; y++) {
                 Vector3Int posLeft = new Vector3Int(-x, y, 0);
-                Vector3Int posRight = new Vector3Int(level.Width + x - 1, y, 0);
+                Vector3Int posRight = new Vector3Int(GetLevel.Width + x - 1, y, 0);
                 wallsTileMap.SetTile(posLeft, wallTile);
                 wallsTileMap.SetTile(posRight, wallTile);
             }

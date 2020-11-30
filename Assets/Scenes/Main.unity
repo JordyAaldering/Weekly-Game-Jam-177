@@ -213,7 +213,7 @@ RectTransform:
   m_Children:
   - {fileID: 492629707}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -284,7 +284,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &492629706
 GameObject:
@@ -536,8 +536,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1875143071}
+  - {fileID: 1463997875}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &815622484
 MonoBehaviour:
@@ -551,9 +552,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e4abf4eb2f037b4fb23ba7ae375bab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: {fileID: 11400000, guid: ebaddc0324b233a46b84a0c372196052, type: 2}
   wallTile: {fileID: 11400000, guid: 56a65388261d5584a960b3afdc259646, type: 2}
   wallsTileMap: {fileID: 1875143076}
+  levels:
+  - {fileID: 11400000, guid: ebaddc0324b233a46b84a0c372196052, type: 2}
+  - {fileID: 11400000, guid: 95ae2eabb5bf8da4a906f1752ed6e18a, type: 2}
 --- !u!1 &1426916586
 GameObject:
   m_ObjectHideFlags: 0
@@ -628,7 +631,7 @@ RectTransform:
   m_Children:
   - {fileID: 2069504578}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -715,8 +718,8 @@ Transform:
   m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_Father: {fileID: 815622483}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1463997876
 BoxCollider2D:
