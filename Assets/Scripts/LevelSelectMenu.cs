@@ -12,7 +12,6 @@ public class LevelSelectMenu : MonoBehaviour
 
 	private void Awake()
 	{
-		PlayerPrefs.DeleteAll();
 		PopulateGrid();
 	}
 

@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 
 public class LevelManager : MonoBehaviour
 {
-    private static LevelManager instance;
-    public static LevelManager Instance =>
-        instance ?? (instance = FindObjectOfType<LevelManager>());
+    public static LevelManager Instance { get; private set; }
 
     [SerializeField] private RuleTile wallTile;
     [SerializeField] private RuleTile acidTile;
@@ -15,15 +14,16 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private Tilemap obstaclesTileMap;
 
     [SerializeField] private Level[] levels;
-    private int curLevel;
     private Level GetLevel => levels[curLevel];
+    private int curLevel;
+
+    public MoveManager MoveManager { get; private set; }
+    public LevelOverlayMenu Overlay { get; private set; }
 
     private Transform player;
     private Vector2 playerStartPos;
     private Transform levelEnd;
     private Camera cam;
-
-    public MoveManager MoveManager { get; private set; }
 
     public bool IsGameWon { get; private set; }
     public bool IsGameOver { get; private set; }
@@ -31,48 +31,55 @@ public class LevelManager : MonoBehaviour
 
     private void Awake()
     {
-        PlayerPrefs.DeleteAll();
+        Instance = this;
+
         curLevel = PlayerPrefs.GetInt("CurLevel", 0);
+
+        MoveManager = FindObjectOfType<MoveManager>();
+        Overlay = FindObjectOfType<LevelOverlayMenu>();
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
         levelEnd = GameObject.FindGameObjectWithTag("LevelEnd").transform;
         cam = Camera.main;
 
-        MoveManager = FindObjectOfType<MoveManager>();
-
         StartLevel();
     }
-
-	private void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.R)) {
-            ResetLevel();
-		}
-
-        if (IsGameWon && Input.GetKeyDown(KeyCode.N)) {
-            curLevel++;
-            StartLevel();
-		}
-	}
 
     private void StartLevel()
     {
         IsGameWon = false;
         IsGameOver = false;
 
+        Overlay.CloseOverlay();
         MoveManager.Initialize(GetLevel.InitialMoves);
+
         GetLevel.PopulateGrid();
         SetupGrid();
         SetCamera();
     }
 
-    private void ResetLevel()
+    public void ResetLevel()
     {
         IsGameWon = false;
         IsGameOver = false;
 
+        Overlay.CloseOverlay();
         MoveManager.Initialize(GetLevel.InitialMoves);
+
         player.position = playerStartPos;
+    }
+
+    public void NextLevel()
+    {
+        if (++curLevel > PlayerPrefs.GetInt("MaxLevel", 0)) {
+            PlayerPrefs.SetInt("MaxLevel", curLevel);
+        }
+
+        if (curLevel == levels.Length) {
+            SceneManager.LoadScene(0);
+        } else {
+            StartLevel();
+		}
     }
 
     private void SetCamera()
@@ -162,12 +169,12 @@ public class LevelManager : MonoBehaviour
     public void LevelComplete()
 	{
         IsGameWon = true;
-        Debug.Log("Game Won");
+        Overlay.OpenOverlay();
     }
 
     public void GameOver()
     {
         IsGameOver = true;
-        Debug.Log("Game Over");
+        Overlay.OpenOverlay();
     }
 }
