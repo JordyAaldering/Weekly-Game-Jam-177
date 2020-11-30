@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float fireForce;
@@ -13,10 +12,16 @@ public class PlayerController : MonoBehaviour
     private Vector2 aimDir;
 
     private Rigidbody2D rb;
+    private LineRenderer lr;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.velocity = Vector2.zero;
+        rb.bodyType = RigidbodyType2D.Dynamic;
+
+        lr = GetComponent<LineRenderer>();
+        lr.enabled = false;
     }
 
     private void Update()
@@ -65,6 +70,10 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         aimDir = (Vector2)transform.position - mousePos;
+
+        lr.enabled = true;
+        lr.SetPosition(0, transform.position);
+        lr.SetPosition(1, transform.position + (Vector3)aimDir);
     }
 
     private void Fire()
@@ -72,6 +81,7 @@ public class PlayerController : MonoBehaviour
         isSticking = false;
         stickTimer = stickCooldown;
         rb.bodyType = RigidbodyType2D.Dynamic;
+        lr.enabled = false;
 
         rb.velocity = fireForce * aimDir;
     }
