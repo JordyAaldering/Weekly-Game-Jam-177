@@ -315,7 +315,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 494525425}
-  - {fileID: 1403896615}
+  - {fileID: 1513909987}
   m_Father: {fileID: 352348619}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -336,7 +336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c6ebf907887ac4e9fe8017c41d7b2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  counterText: {fileID: 1403896616}
+  counterText: {fileID: 1513909988}
 --- !u!1 &494525424
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,8 +581,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e4abf4eb2f037b4fb23ba7ae375bab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialMoves: 0
---- !u!1 &1403896614
+  initialMoves: 5
+--- !u!1 &1513909986
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -590,24 +590,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1403896615}
-  - component: {fileID: 1403896617}
-  - component: {fileID: 1403896616}
+  - component: {fileID: 1513909987}
+  - component: {fileID: 1513909989}
+  - component: {fileID: 1513909988}
   m_Layer: 5
-  m_Name: Move Counter
+  m_Name: Counter Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &1403896615
+--- !u!224 &1513909987
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1403896614}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_GameObject: {fileID: 1513909986}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -619,13 +619,13 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1403896616
+--- !u!114 &1513909988
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1403896614}
+  m_GameObject: {fileID: 1513909986}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
@@ -640,8 +640,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Moves Left: 99'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c7ed3b839e5b63b4a9405279fad78570, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: c7ed3b839e5b63b4a9405279fad78570, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -707,13 +707,13 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &1403896617
+--- !u!222 &1513909989
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1403896614}
+  m_GameObject: {fileID: 1513909986}
   m_CullTransparentMesh: 0
 --- !u!1 &1540761953
 GameObject:
@@ -774,7 +774,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -5259795631652725913, guid: 747b628b89e72074ca1ad14e9674ec89,
+  m_Sprite: {fileID: -5259795631652725913, guid: 6c39c6b5eae524b4eaaa41414d88af00,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -783,7 +783,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1540761955
@@ -836,7 +836,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.3
+  m_Radius: 0.35
 --- !u!114 &1540761958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -849,12 +849,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85df67558c87b1444b0cc7a0fe755207, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireForce: 0
-  stickRadius: 0
+  fireForce: 2
+  stickRadius: 0.4
   stickMask:
     serializedVersion: 2
-    m_Bits: 0
-  stickCooldown: 0
+    m_Bits: 256
+  stickCooldown: 0.1
 --- !u!1 &2134447147
 GameObject:
   m_ObjectHideFlags: 0
