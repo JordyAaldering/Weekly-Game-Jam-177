@@ -25,10 +25,11 @@ public class LevelSelectMenu : MonoBehaviour
 			obj.name = $"Level Select Button {i + 1}";
 			obj.GetComponentInChildren<TextMeshProUGUI>().text = $"{i + 1}";
 
-			if (maxLvl >= i) {
+			if (i <= maxLvl) {
 				Button button = obj.GetComponent<Button>();
 				button.interactable = true;
-				button.onClick.AddListener(delegate { StartLevel(i); });
+				int lvl = i;
+				button.onClick.AddListener(delegate { StartLevel(lvl); });
 			}
 		}
 	}

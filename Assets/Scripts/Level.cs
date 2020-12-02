@@ -10,6 +10,9 @@ public class Level : ScriptableObject
     [SerializeField, TextArea(10,20)] private string levelData;
     private string levelDataFormat;
 
+    [SerializeField] private string levelHint;
+    public string LevelHint => levelHint;
+
     public int Width { get; private set; }
     public int Height { get; private set; }
     public TileType[,] LevelGrid { get; private set; }
