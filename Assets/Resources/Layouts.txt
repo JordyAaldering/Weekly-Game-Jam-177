@@ -37,15 +37,16 @@ www-----wwwwwww
 ----wwwwwwww
 --e-wwwwwwww
 
-wwwwwwwwwsss
-wwwwwwww----
-wwwwwww---e-
-wwwwww---www
-wwwww---wwww
-wwww---wwwww
-aaa---wwwwww
--p---wwwwwww
-----wwwwwwww
+wwwwwwwwssss
+wwwwwww-----
+wwwwww----e-
+wwwww----www
+wwww----wwww
+aaa----wwwww
+-p----wwwwww
+-----wwwwwww
+wwwwwwwwwwww
+wwwwwwwwwwww
 
 --aaaaaa--wwwwssss-----
 ----------wwww------p--

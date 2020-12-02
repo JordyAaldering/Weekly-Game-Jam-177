@@ -13,21 +13,23 @@ MonoBehaviour:
   m_Name: Level06
   m_EditorClassIdentifier: 
   initialMoves: 1
-  levelData: 'wwwwwwwwwsss
+  levelData: 'wwwwwwwwssss
 
-    wwwwwwww----
+    wwwwwww-----
 
-    wwwwwww---e-
+    wwwwww----e-
 
-    wwwwww---www
+    wwwww----www
 
-    wwwww---wwww
+    wwww----wwww
 
-    wwww---wwwww
+    aaa----wwwww
 
-    aaa---wwwwww
+    -p----wwwwww
 
-    -p---wwwwwww
+    -----wwwwwww
 
-    ----wwwwwwww'
+    wwwwwwwwwwww
+
+    wwwwwwwwwwww'
   levelHint: 
