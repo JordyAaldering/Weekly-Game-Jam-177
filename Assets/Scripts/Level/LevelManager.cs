@@ -56,6 +56,8 @@ public class LevelManager : MonoBehaviour
     {
         ResetLevel();
 
+        player.GetComponent<PlayerController>().Initialize();
+
         GetLevel.PopulateGrid();
         SetupGrid();
         SetCamera();
@@ -94,6 +96,8 @@ public class LevelManager : MonoBehaviour
     private void SetupGrid()
     {
         ClearGrid();
+        ClearObstacles();
+        ClearPickups();
         CreateBorders(5);
 
         for (int y = 0; y < GetLevel.Height; y++) {
@@ -106,7 +110,6 @@ public class LevelManager : MonoBehaviour
                     case TileType.Player:
                         playerStartPos = pos + new Vector3(0.5f, 0.5f);
                         player.position = playerStartPos;
-                        player.GetComponent<PlayerController>().Initialize();
                         break;
                     case TileType.Acid:
                         PlaceObstacle(acidTile, x, y);
@@ -153,6 +156,20 @@ public class LevelManager : MonoBehaviour
     private void ClearGrid()
     {
         wallsTileMap.ClearAllTiles();
+    }
+
+    private void ClearObstacles()
+	{
+        foreach (Transform child in obstaclesTileMap.transform) {
+            Destroy(child.gameObject);
+        }
+    }
+
+    private void ClearPickups()
+	{
+        foreach (Transform child in pickupParent) {
+            Destroy(child.gameObject);
+        }
     }
 
     private void CreateBorders(int size)

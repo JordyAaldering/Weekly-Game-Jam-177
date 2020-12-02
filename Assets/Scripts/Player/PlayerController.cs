@@ -22,8 +22,8 @@ public class PlayerController : MonoBehaviour
     public void Initialize()
 	{
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = Vector2.zero;
         rb.bodyType = RigidbodyType2D.Dynamic;
+        rb.velocity = Vector2.zero;
 
         lr = GetComponent<LineRenderer>();
         lr.enabled = false;
