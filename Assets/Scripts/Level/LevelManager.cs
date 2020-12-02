@@ -89,6 +89,11 @@ public class LevelManager : MonoBehaviour
 		}
     }
 
+    public void MainMenu()
+	{
+        SceneManager.LoadScene(0);
+    }
+
     private void SetCamera()
     {
         cam.transform.position = new Vector3(GetLevel.Width / 2f, GetLevel.Height / 2f, -10f);
