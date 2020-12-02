@@ -73,6 +73,10 @@ public class LevelManager : MonoBehaviour
         Overlay.SetHintText(GetLevel.LevelHint);
         MoveManager.Initialize(GetLevel.InitialMoves);
 
+        foreach (Transform child in pickupParent) {
+            child.gameObject.SetActive(true);
+        }
+
         player.GetComponent<PlayerController>().Initialize();
         player.position = playerStartPos;
     }
@@ -104,7 +108,7 @@ public class LevelManager : MonoBehaviour
     private void SetupGrid()
     {
         ClearGrid();
-        CreateBorders(5);
+        CreateBorders(10);
 
         for (int y = 0; y < GetLevel.Height; y++) {
             for (int x = 0; x < GetLevel.Width; x++) {

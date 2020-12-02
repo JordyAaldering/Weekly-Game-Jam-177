@@ -8,7 +8,7 @@ public abstract class Pickup : MonoBehaviour
 	{
 		if (collision.CompareTag("Player")) {
 			ApplyPickup(collision);
-			Destroy(gameObject);
+			gameObject.SetActive(false);
 		}
 	}
 }
