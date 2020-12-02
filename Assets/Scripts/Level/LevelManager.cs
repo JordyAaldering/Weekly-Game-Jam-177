@@ -71,6 +71,8 @@ public class LevelManager : MonoBehaviour
         Overlay.CloseOverlay();
         Overlay.SetHintText(GetLevel.LevelHint);
         MoveManager.Initialize(GetLevel.InitialMoves);
+
+        player.GetComponent<PlayerController>().Initialize();
         player.position = playerStartPos;
     }
 
@@ -90,14 +92,12 @@ public class LevelManager : MonoBehaviour
     private void SetCamera()
     {
         cam.transform.position = new Vector3(GetLevel.Width / 2f, GetLevel.Height / 2f, -10f);
-        cam.orthographicSize = Mathf.Max(GetLevel.Width, GetLevel.Height) / 3f;
+        cam.orthographicSize = Mathf.Max(GetLevel.Width, GetLevel.Height) / 2.5f;
     }
 
     private void SetupGrid()
     {
         ClearGrid();
-        ClearObstacles();
-        ClearPickups();
         CreateBorders(5);
 
         for (int y = 0; y < GetLevel.Height; y++) {
@@ -156,17 +156,8 @@ public class LevelManager : MonoBehaviour
     private void ClearGrid()
     {
         wallsTileMap.ClearAllTiles();
-    }
+        obstaclesTileMap.ClearAllTiles();
 
-    private void ClearObstacles()
-	{
-        foreach (Transform child in obstaclesTileMap.transform) {
-            Destroy(child.gameObject);
-        }
-    }
-
-    private void ClearPickups()
-	{
         foreach (Transform child in pickupParent) {
             Destroy(child.gameObject);
         }

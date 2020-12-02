@@ -2094,7 +2094,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85df67558c87b1444b0cc7a0fe755207, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireForce: 2
+  fireForce: 2.2
   stickRadius: 0.4
   stickMask:
     serializedVersion: 2

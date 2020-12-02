@@ -27,6 +27,9 @@ public class PlayerController : MonoBehaviour
 
         lr = GetComponent<LineRenderer>();
         lr.enabled = false;
+
+        isSticking = false;
+        aimDir = Vector2.zero;
     }
 
     private void Update()
