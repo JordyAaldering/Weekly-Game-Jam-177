@@ -16,6 +16,11 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        Initialize();
+    }
+
+    public void Initialize()
+	{
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
         rb.bodyType = RigidbodyType2D.Dynamic;

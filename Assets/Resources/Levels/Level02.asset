@@ -12,22 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb583a6351106b4f8063655fa5b8a76, type: 3}
   m_Name: Level02
   m_EditorClassIdentifier: 
-  initialMoves: 5
-  levelData: '-----------aaaa
+  initialMoves: 4
+  levelData: 'w--------------
 
     ---------------
 
+    ----wwwww---p--
+
     ----wwwwww-----
 
-    ----wwwwww--e--
+    -------wwwwwwww
 
-    aaa-------wwwww
+    www--e--wwwwwww
 
-    www--p--wwwww--
-
-    www-----wwwww--
-
-    wwwwwwww--sss--
-
-    wwwwwwww-------'
-  levelHint: Avoid dangerous obstacles
+    www-----wwwwwww'
+  levelHint: 

@@ -12,22 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb583a6351106b4f8063655fa5b8a76, type: 3}
   m_Name: Level01
   m_EditorClassIdentifier: 
-  initialMoves: 6
-  levelData: 'w--------------
+  initialMoves: 5
+  levelData: '---------------
 
     ---------------
 
-    ----wwwwww-----
+    --e------------
 
-    ----wwwwww--p--
+    wwwwwwwwwww----
 
-    --------wwwwwww
+    wwwwwwwwwww----
 
-    www--e--wwwwwww
+    ---------------
 
-    www-----wwwwwww
+    --p------------
 
-    wwwwwwwwwwwwwww
-
-    wwwwwwwwwwwwwww'
+    ---------------'
   levelHint: Hold and drag to aim

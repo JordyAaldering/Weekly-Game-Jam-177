@@ -88,7 +88,7 @@ public class LevelManager : MonoBehaviour
     private void SetCamera()
     {
         cam.transform.position = new Vector3(GetLevel.Width / 2f, GetLevel.Height / 2f, -10f);
-        cam.orthographicSize = Mathf.Max(GetLevel.Width, GetLevel.Height) / 2.5f;
+        cam.orthographicSize = Mathf.Max(GetLevel.Width, GetLevel.Height) / 3f;
     }
 
     private void SetupGrid()
@@ -106,6 +106,7 @@ public class LevelManager : MonoBehaviour
                     case TileType.Player:
                         playerStartPos = pos + new Vector3(0.5f, 0.5f);
                         player.position = playerStartPos;
+                        player.GetComponent<PlayerController>().Initialize();
                         break;
                     case TileType.Acid:
                         PlaceObstacle(acidTile, x, y);

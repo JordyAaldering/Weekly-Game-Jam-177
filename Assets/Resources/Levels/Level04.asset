@@ -10,22 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3eb583a6351106b4f8063655fa5b8a76, type: 3}
-  m_Name: Level03
+  m_Name: Level04
   m_EditorClassIdentifier: 
-  initialMoves: 7
-  levelData: '--aaaaaa--wwwwssss-----
+  initialMoves: 1
+  levelData: '-----------------------
 
-    ----------wwww---------
+    --p-----r--------------
 
-    ----------wwww------e--
-
-    ----www---wwww----wwwww
-
-    ----www---wwww----wwwww
-
-    ----www-----------wwwww
-
-    -p--www-----------wwwww
-
-    ----wwwsss--------wwwww'
-  levelHint: Avoid dangerous obstacles
+    ------sssss---------e--'
+  levelHint: The blue pickup lets you roll for a bit
