@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float stickCooldown;
 
     private bool isSticking;
-    private float stickTimer;
+    public float StickTimer { private get; set; }
     private Vector2 aimDir;
 
     private Rigidbody2D rb;
@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
 
     private void StickToWall()
     {
-        if (isSticking || stickTimer > 0f) {
+        if (isSticking || StickTimer > 0f) {
             return;
         }
 
@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
     private void Fire()
     {
         isSticking = false;
-        stickTimer = stickCooldown;
+        StickTimer = stickCooldown;
         rb.bodyType = RigidbodyType2D.Dynamic;
         lr.enabled = false;
 
@@ -88,8 +88,8 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateTimers()
     {
-        if (stickTimer > 0f) {
-            stickTimer -= Time.deltaTime;
+        if (StickTimer > 0f) {
+            StickTimer -= Time.deltaTime;
         }
     }
 
