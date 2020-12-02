@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6770721532600566015}
   - component: {fileID: 2736117122727610757}
   m_Layer: 10
-  m_Name: Pickup
+  m_Name: Pickup Base
   m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,7 +93,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

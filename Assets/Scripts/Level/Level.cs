@@ -6,7 +6,7 @@ public class Level : ScriptableObject
     [SerializeField] private int initialMoves;
     public int InitialMoves => initialMoves;
 
-    [Tooltip("_: None\nw: Wall\na: Acid\ns: Spike\np: Player\ne: End")]
+    [Tooltip("_: None\np: Player\nw: Wall\na: Acid\ns: Spike\nr: Roller\ne: End")]
     [SerializeField, TextArea(10,20)] private string levelData;
     private string levelDataFormat;
 
@@ -40,10 +40,11 @@ public class Level : ScriptableObject
 	{
         switch (c) {
             case '-': return TileType.None;
+            case 'p': return TileType.Player;
             case 'w': return TileType.Wall;
             case 'a': return TileType.Acid;
             case 's': return TileType.Spike;
-            case 'p': return TileType.Player;
+            case 'r': return TileType.Roller;
             case 'e': return TileType.End;
         }
 
@@ -64,9 +65,10 @@ public class Level : ScriptableObject
 public enum TileType
 {
     None,
+    Player,
     Wall,
     Acid,
     Spike,
-    Player,
+    Roller,
     End,
 }

@@ -6,12 +6,18 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance { get; private set; }
 
+    [Header("Pickups")]
+    [SerializeField] private GameObject rollerPrefab;
+
+    [Header("Tiles")]
     [SerializeField] private RuleTile wallTile;
     [SerializeField] private RuleTile acidTile;
     [SerializeField] private RuleTile spikeTile;
 
+    [Header("GameObjects")]
     [SerializeField] private Tilemap wallsTileMap;
     [SerializeField] private Tilemap obstaclesTileMap;
+    [SerializeField] private Transform pickupParent;
 
     private Level[] levels;
     private Level GetLevel => levels[curLevel];
@@ -97,15 +103,18 @@ public class LevelManager : MonoBehaviour
                     case TileType.Wall:
                         wallsTileMap.SetTile(pos, wallTile);
                         break;
+                    case TileType.Player:
+                        playerStartPos = pos + new Vector3(0.5f, 0.5f);
+                        player.position = playerStartPos;
+                        break;
                     case TileType.Acid:
                         PlaceObstacle(acidTile, x, y);
                         break;
                     case TileType.Spike:
                         PlaceObstacle(spikeTile, x, y);
                         break;
-                    case TileType.Player:
-                        playerStartPos = pos + new Vector3(0.5f, 0.5f);
-                        player.position = playerStartPos;
+                    case TileType.Roller:
+                        PlacePickup(rollerPrefab, x, y);
                         break;
                     case TileType.End:
                         levelEnd.position = pos + new Vector3(0.5f, 0.5f);
@@ -134,6 +143,11 @@ public class LevelManager : MonoBehaviour
 
         Debug.LogWarning($"invalid obstacle position ({x}, {y})");
     }
+
+    private void PlacePickup(GameObject obj, int x, int y)
+	{
+        Instantiate(obj, new Vector2(x + 0.5f, y + 0.5f), Quaternion.identity, pickupParent);
+	}
 
     private void ClearGrid()
     {

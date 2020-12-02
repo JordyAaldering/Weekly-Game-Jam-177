@@ -7,6 +7,6 @@ public class RollerPickup : Pickup
 	protected override void ApplyPickup(Collider2D collision)
 	{
 		PlayerController player = collision.GetComponent<PlayerController>();
-		player.StickTimer = increasedStickTimer;
+		player.AddToStickTimer(increasedStickTimer);
 	}
 }

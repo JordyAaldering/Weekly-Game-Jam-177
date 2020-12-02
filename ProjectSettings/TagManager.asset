@@ -6,6 +6,7 @@ TagManager:
   tags:
   - LevelEnd
   - Obstacle
+  - Pickup
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - 
   - Walls
   - Obstacles
-  - 
+  - Pickup
   - 
   - 
   - 

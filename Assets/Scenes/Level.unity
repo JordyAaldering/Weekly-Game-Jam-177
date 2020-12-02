@@ -1131,6 +1131,7 @@ Transform:
   m_Children:
   - {fileID: 1875143071}
   - {fileID: 53495662}
+  - {fileID: 978183732}
   - {fileID: 1463997875}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -1147,11 +1148,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e4abf4eb2f037b4fb23ba7ae375bab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rollerPrefab: {fileID: 528674630900821758, guid: 443fe4938b5724f4588d61a6a0d912f7,
+    type: 3}
   wallTile: {fileID: 11400000, guid: 56a65388261d5584a960b3afdc259646, type: 2}
   acidTile: {fileID: 11400000, guid: d34763e4d6f4e504194b87a3de5dcb88, type: 2}
   spikeTile: {fileID: 11400000, guid: 63f895068e1509b4c938605cf114ac2c, type: 2}
   wallsTileMap: {fileID: 1875143076}
   obstaclesTileMap: {fileID: 53495667}
+  pickupParent: {fileID: 978183732}
 --- !u!1 &976817076
 GameObject:
   m_ObjectHideFlags: 0
@@ -1226,6 +1230,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 976817076}
   m_CullTransparentMesh: 0
+--- !u!1 &978183731
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 978183732}
+  m_Layer: 0
+  m_Name: Pickups
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &978183732
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978183731}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 815622483}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1144240642
 GameObject:
   m_ObjectHideFlags: 0
@@ -1725,7 +1759,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 815622483}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1463997876
 BoxCollider2D:
