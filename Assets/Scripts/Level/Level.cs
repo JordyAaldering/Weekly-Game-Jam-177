@@ -45,6 +45,7 @@ public class Level : ScriptableObject
             case 'a': return TileType.Acid;
             case 's': return TileType.Spike;
             case 'r': return TileType.Roller;
+            case 'h': return TileType.Health;
             case 'e': return TileType.End;
         }
 
@@ -70,5 +71,6 @@ public enum TileType
     Acid,
     Spike,
     Roller,
+    Health,
     End,
 }

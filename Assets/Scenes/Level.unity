@@ -1413,6 +1413,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rollerPrefab: {fileID: 528674630900821758, guid: 443fe4938b5724f4588d61a6a0d912f7,
     type: 3}
+  healthPrefab: {fileID: 788286930935056183, guid: f377e4af86af8d848b928092e5373f1c,
+    type: 3}
   wallTile: {fileID: 11400000, guid: 56a65388261d5584a960b3afdc259646, type: 2}
   acidTile: {fileID: 11400000, guid: d34763e4d6f4e504194b87a3de5dcb88, type: 2}
   spikeTile: {fileID: 11400000, guid: 63f895068e1509b4c938605cf114ac2c, type: 2}

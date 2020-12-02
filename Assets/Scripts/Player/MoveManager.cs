@@ -26,6 +26,12 @@ public class MoveManager : MonoBehaviour
         UpdateCounterText();
     }
 
+    public void IncreaseCounter(int amount)
+	{
+        movesLeft += amount;
+        UpdateCounterText();
+    }
+
     private void UpdateCounterText()
     {
         counterText.text = $"Moves Left: {movesLeft}";

@@ -8,6 +8,7 @@ public class LevelManager : MonoBehaviour
 
     [Header("Pickups")]
     [SerializeField] private GameObject rollerPrefab;
+    [SerializeField] private GameObject healthPrefab;
 
     [Header("Tiles")]
     [SerializeField] private RuleTile wallTile;
@@ -124,6 +125,9 @@ public class LevelManager : MonoBehaviour
                         break;
                     case TileType.Roller:
                         PlacePickup(rollerPrefab, x, y);
+                        break;
+                    case TileType.Health:
+                        PlacePickup(healthPrefab, x, y);
                         break;
                     case TileType.End:
                         levelEnd.position = pos + new Vector3(0.5f, 0.5f);

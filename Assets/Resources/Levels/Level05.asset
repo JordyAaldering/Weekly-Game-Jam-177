@@ -17,7 +17,7 @@ MonoBehaviour:
 
     ------------
 
-    -----aa-----
+    -----aa--h--
 
     ----wwww--p-
 
@@ -28,4 +28,4 @@ MonoBehaviour:
     ----wwwwwwww
 
     --e-wwwwwwww'
-  levelHint: 
+  levelHint: The orange pickup gives you an extra move
